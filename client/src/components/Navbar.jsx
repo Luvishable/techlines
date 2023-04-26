@@ -17,8 +17,8 @@ import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { GiTechnoHeart } from "react-icons/gi";
 
 const links = [
-  { linkname: "Products", path: "/products" },
-  { linkname: "ShoppingCart", path: "/cart" },
+  { linkName: "Products", path: "/products" },
+  { linkName: "ShoppingCart", path: "/cart" },
 ];
 
 const NavLink = ({ path, children }) => (
@@ -40,16 +40,16 @@ const NavLink = ({ path, children }) => (
 const Navbar = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
-
   return (
     <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
-      <Flex h={16} alignItems="center" justify-content="space-between">
+      <Flex h={16} alignItems="center" justifyContent="space-between">
         <IconButton
           size="md"
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
           display={{ md: "none" }}
           onClick={isOpen ? onClose : onOpen}
         />
+
         <HStack>
           <Link as={ReactLink} to="/">
             <Flex alignItems="center">
@@ -59,8 +59,8 @@ const Navbar = () => {
           </Link>
           <HStack as="nav" spacing={4} display={{ base: "none", md: "flex" }}>
             {links.map((link) => (
-              <NavLink key={link.linkname} path={link.path}>
-                {link.linkname}
+              <NavLink key={link.linkName} path={link.path}>
+                {link.linkName}
               </NavLink>
             ))}
           </HStack>
@@ -71,7 +71,7 @@ const Navbar = () => {
               as={colorMode === "light" ? MoonIcon : SunIcon}
               alignSelf="center"
               onClick={() => toggleColorMode()}
-            ></Icon>
+            />
           </NavLink>
           <Button
             as={ReactLink}
@@ -102,8 +102,8 @@ const Navbar = () => {
         <Box pb={4} display={{ md: "none" }}>
           <Stack as="nav" spacing={4}>
             {links.map((link) => (
-              <NavLink key={link.linkname} path={link.path}>
-                {link.linkname}
+              <NavLink key={link.linkName} path={link.path}>
+                {link.linkName}
               </NavLink>
             ))}
             <NavLink key="sign up" path="/registration">
